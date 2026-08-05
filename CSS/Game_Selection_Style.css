@@ -1,0 +1,372 @@
+/* ==========================
+   GLOBAL
+========================== */
+
+:root {
+    --red: #ff0033;
+    --dark-red: #990020;
+    --gold: #ffd700;
+    --white: #ffffff;
+    --muted: #aaaaaa;
+    --card-bg: #111111;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+
+    font-family: 'Arial Black', Impact, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================
+   MAIN CONTAINER
+========================== */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    padding: 30px;
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+header h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin: 0 0 25px;
+
+    letter-spacing: 2px;
+
+    color: white;
+
+    text-shadow:
+        3px 3px 0 #000,
+        -3px -3px 0 #000,
+        0 0 10px var(--red),
+        0 0 25px var(--red),
+        5px 5px 0 var(--dark-red);
+}
+
+
+/* ==========================
+   SEARCH + BUTTONS
+========================== */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+.search {
+    width: 300px;
+
+    padding: 14px 20px;
+
+    background: #050505;
+    color: white;
+
+    border: 2px solid var(--red);
+    border-radius: 12px;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    box-shadow:
+        0 0 10px rgba(255,0,51,0.5);
+}
+
+
+.search::placeholder {
+    color: #777;
+}
+
+
+.search:focus {
+    box-shadow:
+        0 0 15px var(--red),
+        0 0 30px rgba(255,0,51,0.5);
+}
+
+
+
+.btn,
+.secondary {
+
+    padding: 12px 22px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-weight: bold;
+
+    transition: 0.25s ease;
+}
+
+
+/* Main red buttons */
+
+.btn {
+
+    background: var(--red);
+
+    color:white;
+
+    border:2px solid white;
+
+    box-shadow:
+        0 0 10px var(--red),
+        inset 0 -5px 0 var(--dark-red);
+}
+
+
+.btn:hover {
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 20px var(--red),
+        0 0 40px var(--red);
+}
+
+
+/* Secondary buttons */
+
+.secondary {
+
+    background:#222;
+
+    color:white;
+
+    border:2px solid #555;
+}
+
+
+.secondary:hover {
+
+    background:#333;
+
+    border-color:white;
+
+    transform:scale(1.05);
+}
+
+
+
+/* ==========================
+   GAME GRID
+========================== */
+
+.grid {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+}
+
+
+
+/* ==========================
+   GAME CARD
+========================== */
+
+.card {
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #050505
+        );
+
+    border-radius:20px;
+
+    padding:20px;
+
+    border:2px solid #222;
+
+    transition:0.3s ease;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.8);
+
+}
+
+
+.card:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.03);
+
+    border-color:var(--red);
+
+    box-shadow:
+
+        0 0 20px rgba(255,0,51,0.8),
+        0 20px 40px black;
+}
+
+
+
+/* Game image placeholder */
+
+.thumb {
+
+    height:160px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #222,
+            #000
+        );
+
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+
+
+    font-size:2rem;
+
+    color:white;
+
+    text-shadow:
+
+        0 0 10px var(--red);
+
+
+    border:2px solid #333;
+}
+
+
+
+/* Player/time information */
+
+.meta {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:var(--gold);
+
+    font-size:0.9rem;
+
+    margin-bottom:20px;
+}
+
+
+
+/* Description */
+
+.card div[style*="color:var(--muted)"] {
+
+    color:var(--muted) !important;
+
+    font-family:Arial,sans-serif;
+
+}
+
+
+
+/* Buttons inside cards */
+
+.actions {
+
+    display:flex;
+
+    gap:10px;
+
+    margin-left:15px;
+}
+
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer {
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:#777;
+
+    font-family:Arial,sans-serif;
+
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:600px){
+
+    .container{
+        width:95%;
+        padding:15px;
+    }
+
+
+    .controls{
+        flex-direction:column;
+        align-items:center;
+    }
+
+
+    .search{
+        width:100%;
+    }
+
+
+    .card{
+        padding:15px;
+    }
+
+
+    .actions{
+        flex-direction:column;
+    }
+
+}

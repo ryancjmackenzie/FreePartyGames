@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Select Game | Party Game</title>
+
+    <link rel="stylesheet" href="../CSS/Game_Selection_Style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="game-header">
+
+            <h1>
+                SELECT A GAME
+            </h1>
+
+            <div class="controls">
+
+                <input 
+                    id="filter"
+                    class="search"
+                    type="text"
+                    placeholder="Search games..."
+                    autocomplete="off"
+                >
+
+                <button id="newGame" class="btn"> CREATE GAME </button>
+
+            </div>
+
+        </header>
+
+        <main>
+
+                <!-- TRIVIA -->
+            <section class="grid" id="gameGrid" aria-label="Available games">
+
+                <article class="card" data-title="Trivia">
+
+                    <div class="thumb">
+                        <span>TRIVIA</span>
+                    </div>
+
+                    <div class="meta">
+
+                        <span>
+                            2-10 Players
+                        </span>
+
+                        <span>
+                            10-30 Min
+                        </span>
+
+                    </div>
+
+                    <p class="description">
+                        Test your knowledge in fast-paced trivia rounds.
+                    </p>
+
+                    <div class="card-actions">
+
+                        <button class="secondary" data-action="view">
+                            INFO
+                        </button>
+
+
+                        <button class="btn" data-action="play">
+                            PLAY
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <!-- Charades -->
+                <article class="card" data-title="Charades">
+
+                    <div class="thumb">
+                        <span>CHARADES</span>
+                    </div>
+
+                    <div class="meta">
+
+                        <span>
+                            4-12 Players
+                        </span>
+
+
+                        <span>
+                            15-45 Min
+                        </span>
+
+                    </div>
+
+                    <p class="description">
+                        Act out hilarious prompts without speaking.
+                    </p>
+
+                    <div class="card-actions">
+
+                        <button class="secondary" data-action="view">
+                            INFO
+                        </button>
+
+                        <button class="btn" data-action="play">
+                            PLAY
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+        </main>
+
+        <footer>
+
+            <p>
+                Use search to find a game quickly.
+                Select PLAY to begin.
+            </p>
+
+        </footer>
+
+
+    </div>
+
+<script src="JS/Game_Selection.js"></script>
+
+</body>
+
+</html>

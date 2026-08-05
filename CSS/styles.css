@@ -8,28 +8,27 @@ body {
   margin: 0;
 }
 
-#NoMoney {
+/* Decorative images */
+#NoMoney,
+#NoHuzz {
     position: absolute;
-    top: 2%;
-    left: 5%;
-    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+    pointer-events: none; /* prevents clicking over button */
 }
 
-#NoMoney img {
-    width: 120px;      /* Adjust to the size you want */
-    height: auto;
-    display: block;
+#NoMoney {
+    left: 5%;
 }
 
 #NoHuzz {
-    position: absolute;
-    top: 2%;
-    left: 80%;
-    z-index: 1;
+    right: 5%;
 }
 
+#NoMoney img,
 #NoHuzz img {
-    width: 120px;      /* Adjust to the size you want */
+    width: clamp(80px, 10vw, 120px);
     height: auto;
     display: block;
 }
@@ -260,11 +259,6 @@ animation: shine 4s infinite;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-#Start-Button:hover {
-    background-color: #ff3366;
-    transform: translateX(-50%) scale(1.1);
 }
 
 #Start-Button-Text {
