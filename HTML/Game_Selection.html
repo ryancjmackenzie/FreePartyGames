@@ -15,52 +15,32 @@
     <div class="container">
 
         <header class="game-header">
-
             <h1>
                 SELECT A GAME
             </h1>
-
-            <div class="controls">
-
-                <input 
-                    id="filter"
-                    class="search"
-                    type="text"
-                    placeholder="Search games..."
-                    autocomplete="off"
-                >
-
-                <button id="newGame" class="btn"> CREATE GAME </button>
-
-            </div>
-
         </header>
 
         <main>
 
-                <!-- TRIVIA -->
+                <!-- IMPOSTOR -->
             <section class="grid" id="gameGrid" aria-label="Available games">
 
-                <article class="card" data-title="Trivia">
+                <article class="card" data-title="Impostor">
 
                     <div class="thumb">
-                        <span>TRIVIA</span>
+                        <span>IMPOSTOR</span>
                     </div>
 
                     <div class="meta">
 
                         <span>
-                            2-10 Players
-                        </span>
-
-                        <span>
-                            10-30 Min
+                            3-10 Players
                         </span>
 
                     </div>
 
                     <p class="description">
-                        Test your knowledge in fast-paced trivia rounds.
+                        Use your wits to identify the impostor among you!
                     </p>
 
                     <div class="card-actions">
@@ -68,7 +48,6 @@
                         <button class="secondary" data-action="view">
                             INFO
                         </button>
-
 
                         <button class="btn" data-action="play">
                             PLAY
@@ -78,28 +57,83 @@
 
                 </article>
 
-                <!-- Charades -->
-                <article class="card" data-title="Charades">
+                <!-- Stop the timer -->
+                <article class="card" data-title="Stop the Timer">
 
                     <div class="thumb">
-                        <span>CHARADES</span>
+                        <span>STOP THE TIMER</span>
                     </div>
 
                     <div class="meta">
-
                         <span>
-                            4-12 Players
+                            2-10 Players
                         </span>
-
-
-                        <span>
-                            15-45 Min
-                        </span>
-
                     </div>
 
                     <p class="description">
-                        Act out hilarious prompts without speaking.
+                        Stop the timer exactly at the right moment!
+                    </p>
+
+                    <div class="card-actions">
+
+                        <button class="secondary" data-action="view">
+                            INFO
+                        </button>
+
+                        <button class="btn" data-action="play">
+                            PLAY
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <!-- Colour Match -->
+                <article class="card" data-title="Colour Match">
+
+                    <div class="thumb">
+                        <span>COLOUR MATCH</span>
+                    </div>
+
+                    <div class="meta">
+                        <span>
+                            2-10 Players
+                        </span>
+                    </div>
+
+                    <p class="description">
+                        Create the colour closest to the target colour!
+                    </p>
+
+                    <div class="card-actions">
+
+                        <button class="secondary" data-action="view">
+                            INFO
+                        </button>
+
+                        <button class="btn" data-action="play">
+                            PLAY
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <!-- Pass the Bomb -->
+                <article class="card" data-title="Pass the Bomb">
+
+                    <div class="thumb">
+                        <span>PASS THE BOMB</span>
+                    </div>
+
+                    <div class="meta">
+                        <span>
+                            2-10 Players
+                        </span>
+                    </div>
+
+                    <p class="description">
+                        Answer the prompt and pass the phone before the bomb explodes!
                     </p>
 
                     <div class="card-actions">
@@ -123,8 +157,7 @@
         <footer>
 
             <p>
-                Use search to find a game quickly.
-                Select PLAY to begin.
+                © 2026 Ryan Mackenzie
             </p>
 
         </footer>
