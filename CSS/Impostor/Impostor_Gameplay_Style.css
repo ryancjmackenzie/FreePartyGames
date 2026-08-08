@@ -1,0 +1,709 @@
+/* ==========================
+   GLOBAL
+========================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+body {
+    background-color: #FF0042;
+
+    color: white;
+
+    font-family: 'Arial Black', Impact, sans-serif;
+
+    touch-action: none;
+}
+
+
+/* ==========================
+   GAME SCREEN
+========================== */
+
+#gameScreen {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-color: #FF0042;
+}
+
+
+/* ==========================
+   PLAYER INFORMATION
+========================== */
+
+#playerInfo {
+    position: absolute;
+
+    top: 25px;
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    z-index: 10;
+}
+
+#playerNumber {
+    font-family: Arial, sans-serif;
+
+    font-size: 0.85rem;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    opacity: 0.8;
+
+    margin-bottom: 5px;
+}
+
+#playerName {
+    font-size: clamp(1.8rem, 7vw, 3rem);
+
+    text-transform: uppercase;
+
+    text-shadow:
+        3px 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+/* ==========================
+   SWIPE AREA
+========================== */
+
+#swipeArea {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    cursor: grab;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    transition:
+        transform 0.35s ease;
+}
+
+#swipeArea:active {
+    cursor: grabbing;
+}
+
+
+/* ==========================
+   INSTRUCTION
+========================== */
+
+#instructionContainer {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+#instruction {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+#swipeArrow {
+    margin-top: 15px;
+
+    font-size: 3rem;
+
+    animation:
+        swipeArrow 1.2s infinite ease-in-out;
+}
+
+@keyframes swipeArrow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* ==========================
+   ROLE REVEAL
+========================== */
+
+#roleReveal {
+    position: absolute;
+
+    width: 90%;
+    max-width: 600px;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform: translateY(80px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+#roleReveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+#roleLabel {
+    font-family: Arial, sans-serif;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+
+    opacity: 0.8;
+}
+
+#role {
+    font-size: clamp(3rem, 13vw, 6rem);
+
+    margin-bottom: 35px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+/* ==========================
+   SECRET
+========================== */
+
+#secretContainer {
+    padding: 25px;
+
+    border: 3px solid white;
+
+    border-radius: 20px;
+
+    background-color: rgba(0, 0, 0, 0.12);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+#secretLabel {
+    font-family: Arial, sans-serif;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 3px;
+
+    opacity: 0.8;
+
+    margin-bottom: 10px;
+}
+
+#secretWord {
+    font-size: clamp(2rem, 9vw, 4rem);
+
+    text-transform: uppercase;
+
+    word-wrap: break-word;
+}
+
+
+/* ==========================
+   IMPOSTER
+========================== */
+
+#role.imposter {
+    color: #000000;
+
+    text-shadow:
+        3px 3px 0 rgba(255, 255, 255, 0.25);
+}
+
+#role.civilian {
+    color: white;
+}
+
+
+/* ==========================
+   NEXT PLAYER
+========================== */
+
+#nextSection {
+    position: absolute;
+
+    bottom: 30px;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    z-index: 20;
+
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+#nextSection.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+#nextPlayerButton {
+    padding: 16px 35px;
+
+    background: white;
+
+    color: #FF0042;
+
+    border: none;
+
+    border-radius: 15px;
+
+    font-family: inherit;
+
+    font-size: 1.1rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#nextPlayerButton:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+#nextPlayerButton:active {
+    transform: scale(0.97);
+}
+
+
+/* ==========================
+   HIDDEN
+========================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 600px) {
+
+    #playerInfo {
+        top: 20px;
+    }
+
+    #role {
+        margin-bottom: 25px;
+    }
+
+    #secretContainer {
+        padding: 20px;
+    }
+
+    #nextSection {
+        bottom: 20px;
+    }
+
+    #nextPlayerButton {
+        width: 85%;
+
+        padding: 16px;
+    }
+
+}
+
+/* ==========================
+   TIMER
+========================== */
+
+#timerSection {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.4s ease;
+
+    padding: 30px;
+}
+
+#timerSection.visible {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+#timerLabel {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+#timer {
+    font-size: clamp(5rem, 25vw, 12rem);
+
+    line-height: 1;
+
+    font-variant-numeric: tabular-nums;
+
+    text-shadow:
+        5px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#discussionText {
+    max-width: 500px;
+
+    margin-top: 30px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+
+    line-height: 1.5;
+
+    opacity: 0.85;
+}
+
+
+/* ==========================
+   VOTING
+========================== */
+
+#votingSection {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+#votingSection.visible {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+#voteLabel {
+    font-size: clamp(1.8rem, 8vw, 3.5rem);
+
+    letter-spacing: 2px;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+#voteList {
+    width: 100%;
+
+    max-width: 500px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    max-height: 65vh;
+
+    overflow-y: auto;
+}
+
+.vote-button {
+    width: 100%;
+
+    padding: 18px;
+
+    background: white;
+
+    color: #FF0042;
+
+    border: none;
+
+    border-radius: 15px;
+
+    font-family: inherit;
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.vote-button:hover {
+    transform: scale(1.03);
+}
+
+.vote-button:active {
+    transform: scale(0.97);
+}
+
+/* ==========================
+   SUCCESS SCREEN
+========================== */
+
+#successSection {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: scale(0.95);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+
+    z-index: 50;
+}
+
+#successSection.visible {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform: scale(1);
+}
+
+#successLabel {
+    font-size: clamp(1.5rem, 7vw, 3rem);
+
+    letter-spacing: 4px;
+
+    margin-bottom: 10px;
+
+    text-shadow:
+        3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+#successTitle {
+    font-size: clamp(2.5rem, 11vw, 6rem);
+
+    margin: 0 0 20px;
+
+    text-shadow:
+        4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+#successMessage {
+    font-family: Arial, sans-serif;
+
+    font-size: clamp(1rem, 4vw, 1.3rem);
+
+    margin-bottom: 40px;
+
+    opacity: 0.9;
+}
+
+#gameOverButtons {
+    width: 100%;
+
+    max-width: 400px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.game-over-button {
+    width: 100%;
+
+    padding: 17px 25px;
+
+    background: white;
+
+    color: #FF0042;
+
+    border: none;
+
+    border-radius: 15px;
+
+    font-family: inherit;
+
+    font-size: 1.1rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 18px rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.game-over-button:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.game-over-button:active {
+    transform: scale(0.97);
+}
+
+.secondary-game-button {
+    background: transparent;
+
+    color: white;
+
+    border: 3px solid white;
+
+    box-shadow: none;
+}
+
+.secondary-game-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+
+    box-shadow: none;
+}
