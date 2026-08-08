@@ -42,9 +42,270 @@ const numberOfImposters =
     a random word/theme generator.
 */
 
-const secretWord = "PIZZA";
+const wordCategories = {
+    FOOD: [
+        "PIZZA",
+        "BURGER",
+        "PASTA",
+        "CHIPS",
+        "TACO",
+        "SUSHI",
+        "HOTDOG",
+        "POPCORN",
+        "DONUT",
+        "ICE CREAM",
+        "CHOCOLATE",
+        "CAKE",
+        "COOKIE",
+        "PANCAKES",
+        "WAFFLES",
+        "FRIES",
+        "SANDWICH",
+        "CHEESE",
+        "BACON",
+        "STEAK"
+    ],
 
-const generalTheme = "FOOD";
+    ANIMALS: [
+        "DOG",
+        "CAT",
+        "LION",
+        "TIGER",
+        "ELEPHANT",
+        "GIRAFFE",
+        "MONKEY",
+        "ZEBRA",
+        "HORSE",
+        "DOLPHIN",
+        "SHARK",
+        "PENGUIN",
+        "KOALA",
+        "KANGAROO",
+        "CROCODILE",
+        "SNAKE",
+        "TURTLE",
+        "RABBIT",
+        "BEAR",
+        "WOLF"
+    ],
+
+    SPORTS: [
+        "FOOTBALL",
+        "BASKETBALL",
+        "TENNIS",
+        "GOLF",
+        "BOXING",
+        "RUGBY",
+        "CRICKET",
+        "SWIMMING",
+        "CYCLING",
+        "HOCKEY",
+        "BASEBALL",
+        "VOLLEYBALL",
+        "BADMINTON",
+        "SKIING",
+        "SURFING",
+        "WRESTLING",
+        "DARTS",
+        "SNOOKER",
+        "ATHLETICS",
+        "FENCING"
+    ],
+
+    PLACES: [
+        "BEACH",
+        "AIRPORT",
+        "SCHOOL",
+        "HOSPITAL",
+        "RESTAURANT",
+        "CINEMA",
+        "SUPERMARKET",
+        "LIBRARY",
+        "GYM",
+        "HOTEL",
+        "CASTLE",
+        "MUSEUM",
+        "ZOO",
+        "THEME PARK",
+        "STADIUM",
+        "TRAIN STATION",
+        "PARK",
+        "NIGHTCLUB",
+        "SHOPPING CENTRE",
+        "CAMPSITE"
+    ],
+
+    JOBS: [
+        "DOCTOR",
+        "TEACHER",
+        "POLICE OFFICER",
+        "FIREFIGHTER",
+        "CHEF",
+        "PILOT",
+        "LAWYER",
+        "DENTIST",
+        "ENGINEER",
+        "PROGRAMMER",
+        "BARBER",
+        "MECHANIC",
+        "BUILDER",
+        "FARMER",
+        "PHOTOGRAPHER",
+        "ACTOR",
+        "MUSICIAN",
+        "JOURNALIST",
+        "SCIENTIST",
+        "VET"
+    ],
+
+    OBJECTS: [
+        "PHONE",
+        "LAPTOP",
+        "TELEVISION",
+        "CHAIR",
+        "TABLE",
+        "BACKPACK",
+        "UMBRELLA",
+        "CLOCK",
+        "CAMERA",
+        "GUITAR",
+        "HEADPHONES",
+        "KEYBOARD",
+        "BICYCLE",
+        "WALLET",
+        "WATCH",
+        "MIRROR",
+        "LAMP",
+        "PILLOW",
+        "SUITCASE",
+        "REMOTE"
+    ],
+
+    VEHICLES: [
+        "CAR",
+        "BUS",
+        "TRAIN",
+        "AEROPLANE",
+        "HELICOPTER",
+        "BOAT",
+        "MOTORBIKE",
+        "BICYCLE",
+        "TAXI",
+        "AMBULANCE",
+        "FIRE ENGINE",
+        "TRACTOR",
+        "TRUCK",
+        "SUBMARINE",
+        "ROCKET",
+        "LIMOUSINE",
+        "VAN",
+        "TRAM",
+        "SCOOTER",
+        "KART"
+    ],
+
+    TECHNOLOGY: [
+        "COMPUTER",
+        "PHONE",
+        "ROBOT",
+        "DRONE",
+        "KEYBOARD",
+        "MOUSE",
+        "PRINTER",
+        "SERVER",
+        "WEBCAM",
+        "CONSOLE",
+        "CONTROLLER",
+        "SMARTWATCH",
+        "TABLET",
+        "HEADPHONES",
+        "MICROPHONE",
+        "CAMERA",
+        "ROUTER",
+        "USB",
+        "MONITOR",
+        "VR HEADSET"
+    ],
+
+    HOUSEHOLD: [
+        "FRIDGE",
+        "OVEN",
+        "MICROWAVE",
+        "WASHING MACHINE",
+        "TOASTER",
+        "KETTLE",
+        "SOFA",
+        "BED",
+        "SHOWER",
+        "TOILET",
+        "VACUUM",
+        "IRON",
+        "DISHWASHER",
+        "WARDROBE",
+        "DESK",
+        "CURTAINS",
+        "CARPET",
+        "FAN",
+        "BLENDER",
+        "RADIATOR"
+    ],
+
+    ENTERTAINMENT: [
+        "MOVIE",
+        "VIDEO GAME",
+        "CONCERT",
+        "BOOK",
+        "MAGIC SHOW",
+        "CIRCUS",
+        "THEATRE",
+        "KARAOKE",
+        "BOARD GAME",
+        "CARD GAME",
+        "COMEDY",
+        "DANCE",
+        "MUSIC",
+        "PODCAST",
+        "TV SHOW",
+        "PUZZLE",
+        "ESCAPE ROOM",
+        "FESTIVAL",
+        "QUIZ",
+        "DISCO"
+    ]
+};
+
+function generateGameWord() {
+
+    const categories =
+        Object.keys(wordCategories);
+
+    const randomCategory =
+        categories[
+            Math.floor(
+                Math.random() * categories.length
+            )
+        ];
+
+    const words =
+        wordCategories[randomCategory];
+
+    const randomWord =
+        words[
+            Math.floor(
+                Math.random() * words.length
+            )
+        ];
+
+    return {
+        category: randomCategory,
+        word: randomWord
+    };
+}
+
+let gameWord = generateGameWord();
+
+let secretWord = gameWord.word;
+let generalTheme = gameWord.category;
 
 
 /* ==========================
@@ -201,7 +462,6 @@ function createImposterList() {
 
 let imposterPlayers =
     createImposterList();
-
 
 console.log(
     "Current imposters:",
@@ -910,29 +1170,18 @@ function votePlayer(player) {
 function continueAfterCivilianVote() {
 
     /*
-        Check whether there are still
-        enough players to continue.
+        Check whether the imposters
+        have reached majority/equality.
     */
 
-    if (
-        activePlayers.length <= 2
-    ) {
-
-        /*
-            At this point the remaining
-            players cannot meaningfully
-            continue the normal discussion.
-        */
-
-        showImposterWinScreen();
-
+    if (checkImposterWinCondition()) {
         return;
-
     }
 
 
     /*
-        Start another discussion round.
+        There are still enough civilians
+        to continue the game.
     */
 
     playerNumber.textContent = "";
@@ -941,7 +1190,7 @@ function continueAfterCivilianVote() {
 
 
     /*
-        Show timer again.
+        Start another discussion round.
     */
 
     timerSection.classList.add(
@@ -950,9 +1199,48 @@ function continueAfterCivilianVote() {
 
 
     startTimer();
-
 }
 
+function checkImposterWinCondition() {
+
+    const remainingImposters =
+        activePlayers.filter(
+            function (player) {
+                return isPlayerImposter(player);
+            }
+        ).length;
+
+    const remainingCivilians =
+        activePlayers.length -
+        remainingImposters;
+
+    console.log(
+        "Remaining imposters:",
+        remainingImposters
+    );
+
+    console.log(
+        "Remaining civilians:",
+        remainingCivilians
+    );
+
+    /*
+        Imposters win when they equal
+        or outnumber the civilians.
+    */
+
+    if (
+        remainingImposters >=
+        remainingCivilians
+    ) {
+
+        showImposterWinScreen();
+
+        return true;
+    }
+
+    return false;
+}
 
 /* ==========================
    SUCCESS SCREEN
@@ -1130,9 +1418,13 @@ playAgainButton.addEventListener(
             RANDOMLY ASSIGN NEW ROLES
         */
 
-        imposterPlayers =
-            createImposterList();
+        imposterPlayers = createImposterList();
 
+            gameWord = generateGameWord();
+
+        secretWord = gameWord.word;
+
+        generalTheme = gameWord.category;
 
         console.log(
             "NEW IMPOSTERS:",
