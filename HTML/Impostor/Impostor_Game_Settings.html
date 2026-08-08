@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Imposter Game Settings | Party Game</title>
+
+    <link rel="stylesheet" href="/CSS/Impostor/Impostor_Game_Settings_Style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="game-header">
+            <h1>IMPOSTER</h1>
+            <p>GAME SETTINGS</p>
+        </header>
+
+
+        <main class="settings-container">
+
+            <!-- ==========================
+                 PLAYERS
+            =========================== -->
+
+            <section class="settings-card">
+
+                <h2>PLAYERS</h2>
+
+                <p class="setting-description">
+                    Add everyone playing the game.
+                </p>
+
+                <div id="playerList">
+
+                    <div class="player-row">
+                        <span class="player-number">1</span>
+
+                        <input
+                            type="text"
+                            class="player-input"
+                            placeholder="Player name"
+                            maxlength="20"
+                        >
+
+                        <button
+                            type="button"
+                            class="remove-player"
+                            aria-label="Remove player"
+                            disabled
+                        >
+                            ×
+                        </button>
+                    </div>
+
+                    <div class="player-row">
+                        <span class="player-number">2</span>
+
+                        <input
+                            type="text"
+                            class="player-input"
+                            placeholder="Player name"
+                            maxlength="20"
+                        >
+
+                        <button
+                            type="button"
+                            class="remove-player"
+                            aria-label="Remove player"
+                            disabled
+                        >
+                            ×
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="addPlayerButton"
+                    class="secondary-button"
+                >
+                    + ADD PLAYER
+                </button>
+
+                <p id="playerError" class="error-message"></p>
+
+            </section>
+
+
+
+            <!-- ==========================
+                 IMPOSTERS
+            =========================== -->
+
+            <section class="settings-card">
+
+                <h2>IMPOSTERS</h2>
+
+                <p class="setting-description">
+                    Choose how many imposters will be in the game.
+                </p>
+
+                <div class="setting-control">
+
+                    <label for="imposterCount">
+                        NUMBER OF IMPOSTERS
+                    </label>
+
+                    <select id="imposterCount">
+                        <option value="1">1</option>
+                    </select>
+
+                </div>
+
+                <p id="imposterInfo" class="setting-info">
+                    Add more players to unlock more imposters.
+                </p>
+
+            </section>
+
+
+
+            <!-- ==========================
+                 TIME LIMIT
+            =========================== -->
+
+            <section class="settings-card">
+
+                <h2>TIME LIMIT</h2>
+
+                <p class="setting-description">
+                    Set how long players have to find the imposter.
+                </p>
+
+                <div class="setting-control">
+
+                    <label for="timeLimit">
+                        GAME TIME
+                    </label>
+
+                    <select id="timeLimit">
+
+                        <option value="60">1 Minute</option>
+                        <option value="120">2 Minutes</option>
+                        <option value="180">3 Minutes</option>
+                        <option value="300" selected>5 Minutes</option>
+                        <option value="600">10 Minutes</option>
+                        <option value="900">15 Minutes</option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==========================
+                 START GAME
+            =========================== -->
+
+            <section class="start-section">
+
+                <p id="startError" class="error-message"></p>
+
+                <button
+                    type="button"
+                    id="startGameButton"
+                    class="start-button"
+                >
+                    START GAME
+                </button>
+
+            </section>
+
+        </main>
+
+
+
+        <footer>
+
+            <p>
+                © 2026 Ryan Mackenzie
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <script src="/JS/Impostor/Impostor_Game_Settings_Script.js"></script>
+
+</body>
+
+</html>

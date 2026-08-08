@@ -1,0 +1,500 @@
+/* ==========================
+   GLOBAL
+========================== */
+
+:root {
+    --red: #ff0033;
+    --dark-red: #990020;
+    --gold: #ffd700;
+    --white: #ffffff;
+    --muted: #aaaaaa;
+    --card-bg: #111111;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    color: white;
+
+    min-height: 100vh;
+    margin: 0;
+
+    font-family: 'Arial Black', Impact, sans-serif;
+
+    display: flex;
+    justify-content: center;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================
+   MAIN CONTAINER
+========================== */
+
+.container {
+    width: 90%;
+    max-width: 900px;
+
+    padding: 40px 20px;
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+.game-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.game-header h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+
+    margin: 0;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    text-shadow:
+        3px 3px 0 #000,
+        -3px -3px 0 #000,
+        0 0 10px var(--red),
+        0 0 25px var(--red),
+        5px 5px 0 var(--dark-red);
+}
+
+.game-header p {
+    margin: 8px 0 0;
+
+    color: var(--gold);
+
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 8px rgba(255, 215, 0, 0.7);
+}
+
+
+/* ==========================
+   SETTINGS CONTAINER
+========================== */
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+/* ==========================
+   SETTINGS CARD
+========================== */
+
+.settings-card {
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #050505
+        );
+
+    border: 2px solid #252525;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.settings-card h2 {
+    margin: 0 0 8px;
+
+    color: var(--red);
+
+    font-size: 1.5rem;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 8px rgba(255, 0, 51, 0.6);
+}
+
+.setting-description {
+    margin: 0 0 20px;
+
+    color: var(--muted);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 0.95rem;
+}
+
+
+/* ==========================
+   PLAYER LIST
+========================== */
+
+#playerList {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.player-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.player-number {
+    width: 35px;
+    min-width: 35px;
+
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--red);
+
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+
+    box-shadow:
+        0 0 10px rgba(255, 0, 51, 0.4);
+}
+
+.player-input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 12px 15px;
+
+    background: #050505;
+
+    color: white;
+
+    border: 2px solid #333;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 1rem;
+
+    transition: 0.2s ease;
+}
+
+.player-input:focus {
+    border-color: var(--red);
+
+    box-shadow:
+        0 0 10px rgba(255, 0, 51, 0.4);
+}
+
+.player-input::placeholder {
+    color: #666;
+}
+
+
+/* ==========================
+   REMOVE PLAYER
+========================== */
+
+.remove-player {
+    width: 40px;
+    min-width: 40px;
+
+    height: 40px;
+
+    border: 2px solid #444;
+
+    border-radius: 10px;
+
+    background: #181818;
+
+    color: #aaa;
+
+    font-size: 1.5rem;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.remove-player:not(:disabled):hover {
+    background: var(--red);
+
+    color: white;
+
+    border-color: white;
+
+    transform: scale(1.05);
+}
+
+.remove-player:disabled {
+    opacity: 0.3;
+
+    cursor: not-allowed;
+}
+
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.secondary-button {
+    padding: 12px 20px;
+
+    background: #222;
+
+    color: white;
+
+    border: 2px solid #555;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-weight: bold;
+
+    transition: 0.25s ease;
+}
+
+.secondary-button:hover {
+    background: #333;
+
+    border-color: white;
+
+    transform: scale(1.03);
+}
+
+
+/* ==========================
+   SETTING CONTROL
+========================== */
+
+.setting-control {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 15px;
+
+    background: #080808;
+
+    border: 1px solid #292929;
+
+    border-radius: 12px;
+}
+
+.setting-control label {
+    color: white;
+
+    font-size: 0.95rem;
+
+    letter-spacing: 1px;
+}
+
+.setting-control select {
+    min-width: 150px;
+
+    padding: 11px 15px;
+
+    background: #111;
+
+    color: white;
+
+    border: 2px solid var(--red);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 8px rgba(255, 0, 51, 0.25);
+}
+
+.setting-control select:focus {
+    box-shadow:
+        0 0 15px rgba(255, 0, 51, 0.6);
+}
+
+
+/* ==========================
+   SETTING INFORMATION
+========================== */
+
+.setting-info {
+    margin: 12px 0 0;
+
+    color: var(--gold);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 0.85rem;
+}
+
+
+/* ==========================
+   ERRORS
+========================== */
+
+.error-message {
+    min-height: 18px;
+
+    margin: 10px 0 0;
+
+    color: var(--red);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 0.85rem;
+}
+
+
+/* ==========================
+   START SECTION
+========================== */
+
+.start-section {
+    text-align: center;
+
+    margin-top: 5px;
+}
+
+.start-button {
+    width: 100%;
+
+    padding: 18px 25px;
+
+    background: var(--red);
+
+    color: white;
+
+    border: 3px solid white;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 0 15px var(--red),
+        inset 0 -6px 0 var(--dark-red);
+
+    transition: 0.25s ease;
+}
+
+.start-button:hover {
+    transform: scale(1.02);
+
+    box-shadow:
+        0 0 25px var(--red),
+        0 0 50px rgba(255, 0, 51, 0.6);
+}
+
+.start-button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer {
+    text-align: center;
+
+    margin-top: 35px;
+
+    color: #666;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 0.85rem;
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 95%;
+
+        padding: 25px 10px;
+    }
+
+    .settings-card {
+        padding: 20px;
+    }
+
+    .player-row {
+        gap: 7px;
+    }
+
+    .player-number {
+        width: 30px;
+        min-width: 30px;
+
+        height: 35px;
+    }
+
+    .remove-player {
+        width: 35px;
+        min-width: 35px;
+    }
+
+    .setting-control {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .setting-control select {
+        width: 100%;
+    }
+
+}
