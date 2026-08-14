@@ -158,7 +158,7 @@ const wordCategories = {
         "VET"
     ],
 
-    OBJECTS: [
+    BELONGINGS: [
         "PHONE",
         "LAPTOP",
         "TELEVISION",
@@ -501,6 +501,19 @@ function isPlayerImposter(player) {
 
 }
 
+/* ==========================
+   CHECK RYAN IMPOSTER ADVANTAGE
+========================== */
+
+function isRyanImposter() {
+
+    return (
+        players[currentPlayer] === "Ryan" &&
+        isCurrentPlayerImposter()
+    );
+
+}
+
 
 /* ==========================
    LOAD PLAYER
@@ -607,41 +620,49 @@ function revealPlayer() {
         );
 
 
-        secretLabel.textContent =
-            "GENERAL THEME";
+        /*
+            RYAN SPECIAL CASE
 
+            If Ryan is the imposter,
+            he gets to see the secret word
+            instead of just the general theme.
+        */
 
-        secretWordElement.textContent =
-            generalTheme;
+        if (isRyanImposter()) {
+
+            secretLabel.textContent = "SECRET WORD";
+
+            secretWordElement.textContent = generalTheme + ": " + secretWord;
+
+        }
+
+        /*
+            NORMAL IMPOSTER
+        */
+
+        else {
+            secretLabel.textContent = "GENERAL THEME";
+
+            secretWordElement.textContent = generalTheme;
+        }
 
     }
-
 
     /*
         CIVILIAN
     */
 
     else {
+        role.textContent = "CIVILIAN";
 
-        role.textContent =
-            "CIVILIAN";
+        role.classList.add("civilian");
 
-        role.classList.add(
-            "civilian"
-        );
+        secretLabel.textContent = "SECRET WORD";
 
-
-        secretLabel.textContent =
-            "SECRET WORD";
-
-
-        secretWordElement.textContent =
-            secretWord;
-
+        secretWordElement.textContent = secretWord;
     }
 
 }
-
 
 /* ==========================
    HIDE PLAYER INFORMATION
@@ -653,31 +674,21 @@ function hidePlayerInformation() {
         return;
     }
 
-
     /*
         Hide role/word
     */
 
-    roleReveal.classList.remove(
-        "visible"
-    );
+    roleReveal.classList.remove("visible");
 
+    instructionContainer.style.opacity = "1";
 
-    instructionContainer.style.opacity =
-        "1";
-
-    instructionContainer.style.transform =
-        "translateY(0)";
-
+    instructionContainer.style.transform = "translateY(0)";
 
     /*
         Show next player
     */
 
-    nextSection.classList.add(
-        "visible"
-    );
-
+    nextSection.classList.add("visible");
 }
 
 
@@ -689,8 +700,7 @@ swipeArea.addEventListener(
     "touchstart",
     function (event) {
 
-        startY =
-            event.touches[0].clientY;
+        startY = event.touches[0].clientY;
 
     },
     {
@@ -707,8 +717,7 @@ swipeArea.addEventListener(
     "touchend",
     function (event) {
 
-        endY =
-            event.changedTouches[0].clientY;
+        endY = event.changedTouches[0].clientY;
 
         handleSwipe();
 
