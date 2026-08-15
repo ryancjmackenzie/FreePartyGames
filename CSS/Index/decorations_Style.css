@@ -1,0 +1,48 @@
+/* ==========================
+   DECORATIVE IMAGES
+========================== */
+
+#NoMoney,
+#NoHuzz {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 0;
+
+    pointer-events: none;
+
+}
+
+
+#NoMoney {
+
+    left: 5%;
+
+}
+
+
+#NoHuzz {
+
+    right: 5%;
+
+}
+
+
+#NoMoney img,
+#NoHuzz img {
+
+    width: clamp(
+        80px,
+        10vw,
+        120px
+    );
+
+    height: auto;
+
+    display: block;
+
+}

@@ -354,6 +354,9 @@ const votingSection =
 const voteList =
     document.getElementById("voteList");
 
+const skipVoteButton =
+    document.getElementById("skipVoteButton");
+
 const successSection =
     document.getElementById("successSection");
 
@@ -1065,6 +1068,84 @@ function createVotingButtons() {
 
 }
 
+/* ==========================
+   SKIP VOTE
+========================== */
+
+skipVoteButton.addEventListener(
+    "click",
+    function () {
+
+        console.log(
+            "Vote skipped."
+        );
+
+
+        votingSection.classList.remove(
+            "visible"
+        );
+
+
+        playerNumber.textContent = "";
+
+        playerName.textContent = "";
+
+
+        timerSection.classList.add(
+            "visible"
+        );
+
+
+        /*
+            SKIP ALWAYS STARTS
+            A 1-MINUTE TIMER
+        */
+
+        if (timerInterval !== null) {
+
+            clearInterval(
+                timerInterval
+            );
+
+            timerInterval = null;
+
+        }
+
+
+        remainingTime = 60;
+
+        updateTimerDisplay();
+
+
+        timerInterval =
+            setInterval(
+                function () {
+
+                    remainingTime--;
+
+                    updateTimerDisplay();
+
+
+                    if (
+                        remainingTime <= 0
+                    ) {
+
+                        clearInterval(
+                            timerInterval
+                        );
+
+                        timerInterval = null;
+
+                        showVotingScreen();
+
+                    }
+
+                },
+                1000
+            );
+
+    }
+);
 
 /* ==========================
    VOTE PLAYER

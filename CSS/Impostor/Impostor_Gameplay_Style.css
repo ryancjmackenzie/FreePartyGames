@@ -707,3 +707,45 @@ body {
 
     box-shadow: none;
 }
+
+#skipVoteButton {
+    width: 100%;
+
+    max-width: 500px;
+
+    margin-top: 15px;
+
+    padding: 16px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 3px solid white;
+
+    border-radius: 15px;
+
+    font-family: inherit;
+
+    font-size: 1.1rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+#skipVoteButton:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+
+    transform: scale(1.03);
+}
+
+#skipVoteButton:active {
+    transform: scale(0.97);
+}

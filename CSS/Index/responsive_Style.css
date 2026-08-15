@@ -1,0 +1,111 @@
+/* ==========================
+   TABLETS
+========================== */
+
+@media (max-width: 768px) {
+
+    .Title-Container {
+
+        top: 20%;
+
+        max-width: 95vw;
+
+    }
+
+
+    #Title {
+
+        font-size:
+            clamp(
+                1.8rem,
+                10vw,
+                3.5rem
+            );
+
+        letter-spacing: 1px;
+
+    }
+
+
+    #Title-Floater {
+
+        top: -0.5em;
+
+        right: -0.2em;
+
+        font-size: 0.3em;
+
+    }
+
+}
+
+
+/* ==========================
+   MOBILE PHONES
+========================== */
+
+@media (max-width: 480px) {
+
+    .Title-Container {
+
+        top: 25%;
+
+        max-width: 90vw;
+
+    }
+
+
+    #Title {
+
+        font-size:
+            clamp(
+                1.4rem,
+                12vw,
+                2.5rem
+            );
+
+        letter-spacing: 0;
+
+    }
+
+
+    #Title-Floater {
+
+        top: -0.55em;
+
+        right: -0.15em;
+
+        font-size: 0.28em;
+
+    }
+
+}
+
+
+/* ==========================
+   VERY SMALL PHONES
+========================== */
+
+@media (max-width: 320px) {
+
+    .Title-Container {
+
+        top: 20%;
+
+    }
+
+
+    #Title {
+
+        font-size: 1.3rem;
+
+    }
+
+
+    #Title-Floater {
+
+        font-size: 0.25em;
+
+    }
+
+}
