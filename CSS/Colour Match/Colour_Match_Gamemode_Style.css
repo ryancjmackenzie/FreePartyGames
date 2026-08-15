@@ -1,0 +1,202 @@
+/* ==========================
+   BODY
+========================== */
+
+:root {
+    --red: #ff0033;
+    --dark-red: #990020;
+    --gold: #ffd700;
+    --white: #ffffff;
+    --muted: #aaaaaa;
+    --card-bg: #111111;
+}
+
+body {
+    background: #000000;
+
+    color: white;
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    font-family:
+        'Arial Black',
+        Impact,
+        sans-serif;
+
+    position: relative;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+header {
+    position: absolute;
+
+    top: 5%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+
+    text-align: center;
+}
+
+
+header h1 {
+    font-size:
+        clamp(
+            2rem,
+            6vw,
+            4rem
+        );
+
+    margin: 0;
+
+    letter-spacing: 2px;
+
+    color: white;
+
+    text-shadow:
+
+        3px 3px 0 #000,
+
+        -3px -3px 0 #000,
+
+        0 0 10px var(--red),
+
+        0 0 25px var(--red),
+
+        5px 5px 0 var(--dark-red);
+}
+
+
+/* ==========================
+   MAIN
+========================== */
+
+main {
+    position: absolute;
+
+    top: 18%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================
+   GAMEMODE CARDS
+========================== */
+
+.gamemode-container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 2vh;
+
+    width: 100%;
+}
+
+
+.gamemode-card {
+
+    width: 32%;
+
+    padding: 1.5%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #050505
+        );
+
+    border: 2px solid #222;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.8);
+}
+
+
+/* ==========================
+   CARD TEXT
+========================== */
+
+.gamemode-card h2 {
+
+    font-size: 1.5rem;
+
+    margin: 0 0 1vh 0;
+}
+
+
+.gamemode-card p {
+
+    font-size: 0.9rem;
+
+    margin: 0;
+}
+
+
+/* ==========================
+   START BUTTON
+========================== */
+
+.start-game-button {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 40%;
+
+    height: 7.5vh;
+
+    margin-top: 2%;
+
+    background-color:
+        rgb(28, 182, 14);
+
+    color: white;
+
+    font-size: 1.5rem;
+
+    font-weight: bold;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease-in-out;
+}
